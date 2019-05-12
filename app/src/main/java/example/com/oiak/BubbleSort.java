@@ -60,12 +60,13 @@ public class BubbleSort {
         }
         int changed = -1;
         int min = 0, max = TAB_SIZE - 1;
+        Integer temp;       //mniej srogie wykorzystanie pamięci
         //for(int j = TAB_SIZE - 1; j > 0; j--)//etap2
         do {
             changed = -1;//etap3
             for (int i = min; i < max; i++) {
                 if (list.get(i) > list.get(i + 1)) {
-                    Integer temp = list.get(i);     //srooogie wykorzystanie pamięci. Mam nadzieję
+                    temp = list.get(i);
                     list.set(i, list.get(i + 1));
                     list.set(i + 1, temp);
                     if (changed < 0) {
