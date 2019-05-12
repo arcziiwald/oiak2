@@ -7,8 +7,9 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnStart;
-    private Button btnSort;
+    private Button btnSilly;
+    private Button btnWisely;
+    private Button btnGC;
     ReadData readData;
 
     @Override
@@ -18,17 +19,18 @@ public class MainActivity extends AppCompatActivity {
 
         readData = new ReadData();
 
-        btnStart = (Button) findViewById(R.id.button);
-        btnSort = (Button) findViewById(R.id.btnSort);
+        btnSilly = (Button) findViewById(R.id.btnSilly);
+        btnWisely = (Button) findViewById(R.id.btnWisely);
+        btnGC = (Button) findViewById(R.id.btnGC);
 
-        btnStart.setOnClickListener(new View.OnClickListener() {
+        btnSilly.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startSortSilly();
             }
         });
 
-        btnSort.setOnClickListener(new View.OnClickListener() {
+        btnWisely.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startSortWisely();
@@ -53,5 +55,9 @@ public class MainActivity extends AppCompatActivity {
     public void startSortWisely() {
         BubbleSort bs = new BubbleSort();
         bs.sortWisely(getApplicationContext());
+    }
+
+    public void gcActivate() {
+        System.gc();
     }
 }

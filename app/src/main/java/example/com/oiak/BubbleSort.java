@@ -9,7 +9,8 @@ import java.util.Random;
 
 public class BubbleSort {
 
-    int TAB_SIZE = 1000;
+    List<Integer> list = new LinkedList<Integer>();
+    int TAB_SIZE = 10000;
     /*
     do gorszej implementacji:
     - linkedList do przechowywania całego shitu (żeby cokolwiek znaleźć trzeba przelecieć całą)
@@ -17,24 +18,21 @@ public class BubbleSort {
 
     do lepszej implementacji:
     - najmądrzejszy z dostępnych algorytmów bąbelkowych
-    - arrayList do przechowywania shitu
+    - arrayList do przechowywania liczb
 
-    to powinno zrobić różnicę
      */
 
     public BubbleSort() {
-    }
-
-
-    public void sortSilly(Context context) {
-        System.out.println("sortSilly()");
-        List<Integer> list = new LinkedList<Integer>();
-
         //to do wywalenia, jak się zrobi wczytywanie
         Random rand = new Random();
         for (int i = 0; i < TAB_SIZE; i++) {
             list.add(rand.nextInt());
         }
+    }
+
+
+    public void sortSilly(Context context) {
+        System.out.println("sortSilly()");
 
         for (int j = 0; j < TAB_SIZE - 1; j++)
             for (int i = 0; i < TAB_SIZE - 1; i++)
@@ -51,17 +49,15 @@ public class BubbleSort {
 
     public void sortWisely(Context context) {
         System.out.println("sortWisely()");
-        List<Integer> list = new ArrayList<Integer>();
+        //List<Integer> list = new ArrayList<Integer>();
 
-        //to do wywalenia, jak się zrobi wczytywanie
-        Random rand = new Random();
-        for (int i = 0; i < TAB_SIZE; i++) {
-            list.add(rand.nextInt(10000));
-        }
+        //Random rand = new Random();
+        //for (int i = 0; i < TAB_SIZE; i++) {
+        //    list.add(rand.nextInt(10000));
+        //}
         int changed = -1;
         int min = 0, max = TAB_SIZE - 1;
         Integer temp;       //mniej srogie wykorzystanie pamięci
-        //for(int j = TAB_SIZE - 1; j > 0; j--)//etap2
         do {
             changed = -1;//etap3
             for (int i = min; i < max; i++) {
