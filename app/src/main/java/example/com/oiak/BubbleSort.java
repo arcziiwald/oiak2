@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class BubbleSort {
 
-    List<Integer> list = new LinkedList<Integer>();
+
     int TAB_SIZE = 10000;
     /*
     do gorszej implementacji:
@@ -23,16 +23,18 @@ public class BubbleSort {
      */
 
     public BubbleSort() {
-        //to do wywalenia, jak się zrobi wczytywanie
-        Random rand = new Random();
-        for (int i = 0; i < TAB_SIZE; i++) {
-            list.add(rand.nextInt());
-        }
     }
 
 
     public void sortSilly(Context context) {
         System.out.println("sortSilly()");
+        List<Integer> list = new LinkedList<Integer>();
+
+        //to do wywalenia, jak się zrobi wczytywanie
+        Random rand = new Random();
+        for (int i = 0; i < TAB_SIZE; i++) {
+            list.add(rand.nextInt());
+        }
 
         for (int j = 0; j < TAB_SIZE - 1; j++)
             for (int i = 0; i < TAB_SIZE - 1; i++)
@@ -49,15 +51,15 @@ public class BubbleSort {
 
     public void sortWisely(Context context) {
         System.out.println("sortWisely()");
-        //List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<Integer>();
 
-        //Random rand = new Random();
-        //for (int i = 0; i < TAB_SIZE; i++) {
-        //    list.add(rand.nextInt(10000));
-        //}
-        int changed = -1;
-        int min = 0, max = TAB_SIZE - 1;
+        Random rand = new Random();
+        for (int i = 0; i < TAB_SIZE; i++) {
+            list.add(rand.nextInt(10000));
+        }
         Integer temp;       //mniej srogie wykorzystanie pamięci
+        int changed;
+        int min = 0, max = TAB_SIZE - 1;
         do {
             changed = -1;//etap3
             for (int i = min; i < max; i++) {
@@ -69,14 +71,13 @@ public class BubbleSort {
                         min = i;
                     }
                     changed = i;
-                    //changed = true;
                 }
-                if (min > 0) {//if(pmin) pmin--;
-                    min--;
-                }
-                max = changed;
-                //    break;//jeśli nie było żadnej zmiany w przebiegu, zbiór jest posortowany.
             }
+            if (min != 0) {//if(pmin) pmin--;
+                min--;
+            }
+            max = changed;
+            //    break;//jeśli nie było żadnej zmiany w przebiegu, zbiór jest posortowany.
         } while (changed >= 0);
         ReadData readData = new ReadData();
         readData.writeToFile(list, "dataOut", context);

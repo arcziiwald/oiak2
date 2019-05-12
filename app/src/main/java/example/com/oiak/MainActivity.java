@@ -50,11 +50,13 @@ public class MainActivity extends AppCompatActivity {
     public void startSortSilly() {
         BubbleSort bs = new BubbleSort();
         bs.sortSilly(getApplicationContext());
+        System.gc();
     }
 
     public void startSortWisely() {
         BubbleSort bs = new BubbleSort();
         bs.sortWisely(getApplicationContext());
+        System.gc();
     }
 
     public void gcActivate() {
