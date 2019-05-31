@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     public void startGeneratingData(int numOfElements) {
         bs.generateData(numOfElements);
         Toast.makeText(getApplicationContext(), "Generating data finished.", Toast.LENGTH_LONG).show();
+        System.gc();
     }
 
     public void startSortSilly() {
